@@ -1,0 +1,50 @@
+spring:
+  application:
+    name: pms
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+    default-property-inclusion: non_null
+  datasource:
+    primary: 
+      name: test
+      url: jdbc:mysql://10.1.8.33:23306/pms?useUnicode=true&characterEncoding=UTF8
+      username: root
+      password: ag
+      # 使用druid数据源
+      type: com.alibaba.druid.pool.DruidDataSource
+      driver-class-name: com.mysql.jdbc.Driver
+      filters: stat
+      maxActive: 20
+      initialSize: 1
+      maxWait: 60000
+      minIdle: 1
+      timeBetweenEvictionRunsMillis: 60000
+      minEvictableIdleTimeMillis: 300000
+      validationQuery: select 'x'
+      testWhileIdle: true
+      testOnBorrow: false
+      testOnReturn: false
+      poolPreparedStatements: true
+      maxOpenPreparedStatements: 20
+    zt: 
+      name: zt
+      url: jdbc:mysql://10.1.8.33:23306/zt?useUnicode=true&characterEncoding=UTF8
+      username: root
+      password: ag
+      type: com.alibaba.druid.pool.DruidDataSource
+      driver-class-name: com.mysql.jdbc.Driver
+    sonar: 
+      name: sonar
+      url: jdbc:postgresql://10.1.8.33:35432/sonar
+      username: sonar
+      password: sonar
+      type: com.alibaba.druid.pool.DruidDataSource
+      driver-class-name: org.postgresql.Driver
+server:
+  port: 9777 #启动端口
+logging:
+  level:
+#        tk.mybatis: DEBUG
+    com.github.wxiaoqi.security.auth: DEBUG
+
