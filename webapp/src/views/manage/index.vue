@@ -1,40 +1,62 @@
 <template>
-  <avue-timeline pending :time="true" :time-width="200">
-    <avue-timeline-item>北京</avue-timeline-item>
-    <avue-timeline-item color="green">长春</avue-timeline-item>
-    <avue-timeline-item>
-      <div slot="time">2012-12-23</div>
-      <div slot="content">到达呼伦贝尔</div>
-    </avue-timeline-item>
-    <avue-timeline-item icon="el-icon-circle-check-outline">
-      <div slot="time">
-        <p>2012-12-23</p>
-        <p>天气晴</p>
-      </div>
-      <div slot="content">蒙古的草原</div>
-    </avue-timeline-item>
-    <avue-timeline-item icon="el-icon-tickets" color="green">
-      <div slot="time">
-        <p>2012-12-23</p>
-        <p>小雨</p>
-      </div>
-      <div slot="content">
-        <h3>春夜洛城闻笛</h3>
-        <p>谁家玉笛暗飞声</p>
-        <p>散入春风满洛城</p>
-        <p>此夜曲中闻折柳</p>
-        <p>何人不起故园情</p>
-      </div>
-    </avue-timeline-item>
-    <avue-timeline-item>
-      <a href="#" style="color: #409EFF;cursor: pointer;text-decoration: none;">加载更多</a>
-    </avue-timeline-item>
-  </avue-timeline>
+  <div class="manageBox">
+    <el-card shadow="never">
+      <timePanel class="timeBox"></timePanel>
+    </el-card>
+    <el-card shadow="never">
+      <project></project>
+    </el-card>
+    <el-card shadow="never">
+      <LineChart :chart-data="lineChartData"></LineChart>
+    </el-card>
+  </div>
 </template>
 
 <script>
-export default {}
+import timePanel from "./components/timePanel";
+import project from "./components/project";
+import LineChart from './components/LineChart'
+const lineChartData = {
+  newVisitis: {
+    expectedData: [100, 120, 161, 134, 105, 160, 165],
+    actualData: [120, 82, 91, 154, 162, 140, 145]
+  },
+  messages: {
+    expectedData: [200, 192, 120, 144, 160, 130, 140],
+    actualData: [180, 160, 151, 106, 145, 150, 130]
+  },
+  purchases: {
+    expectedData: [80, 100, 121, 104, 105, 90, 100],
+    actualData: [120, 90, 100, 138, 142, 130, 130]
+  },
+  shoppings: {
+    expectedData: [130, 140, 141, 142, 145, 150, 160],
+    actualData: [120, 82, 91, 154, 162, 140, 130]
+  }
+}
+export default {
+  components: {
+    timePanel,
+    project,
+    LineChart
+  },
+  data() {
+    return {
+      lineChartData: lineChartData.newVisitis
+    }
+  }
+};
 </script>
 
-<style>
+<style lang="scss" scoped>
+.manageBox{
+  padding: 20px;
+  .el-card{
+    margin-bottom: 20px;
+  }
+}
+.timeBox {
+  padding: 20px;
+}
 </style>
+
