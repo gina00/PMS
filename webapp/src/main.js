@@ -19,6 +19,11 @@ import './utils/error-log' // error log
 
 import * as filters from './filters' // global filters
 
+import Avue from '@smallwei/avue'
+import '@smallwei/avue/lib/index.css'
+
+Vue.use(Avue)
+
 /**
  * If you don't want to use mock-server
  * you want to use MockJs for mock api
