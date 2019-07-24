@@ -18,7 +18,7 @@
       </section>
       <section class="line1">
         <div>昨日已完成</div>
-        <el-progress :percentage="100" :format="format"></el-progress>
+        <el-progress :percentage="100"></el-progress>
       </section>
       <section class="line1">
         <div>昨日已完成</div>
@@ -41,11 +41,11 @@ export default {};
     right: 20px;
     margin-bottom: 20px;
   }
-  .progressLine {
-    margin-top: 20px;
-    .line1{
-        margin-top: 10px;
-    }
+}
+.progressLine {
+  margin-top: 20px;
+  .line1 {
+    margin-bottom: 15px;
   }
 }
 </style>
