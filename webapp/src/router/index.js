@@ -87,6 +87,10 @@ export const constantRoutes = [{
 {
     path: '/paas',
     component: Layout,
+    meta: {
+        title: 'Paas',
+        icon: 'lock'
+    },
     children: [{
         path: 'index',
         component: () =>
