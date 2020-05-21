@@ -41,6 +41,13 @@ spring:
       password: sonar
       type: com.alibaba.druid.pool.DruidDataSource
       driver-class-name: org.postgresql.Driver
+  redis:
+    cluster:
+      nodes: 10.1.8.13:8001,10.1.8.13:8002,10.1.8.13:8003,10.1.8.13:8004,10.1.8.13:8005,10.1.8.13:8006
+      max-redirects: 10
+    password: PaasDev2.3
+    commandTimeout: 5
+    database: 0
 server:
   port: 9777 #启动端口
 logging:

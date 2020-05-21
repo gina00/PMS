@@ -18,7 +18,12 @@ import './permission' // permission control
 import './utils/error-log' // error log
 
 import * as filters from './filters' // global filters
-
+import moment from 'moment'; //导入模块
+moment.locale('zh-cn'); //设置语言 或 moment.lang('zh-cn'); 
+Vue.prototype.$moment = moment;//赋值使用
+Vue.filter('dateformat', (dataStr, pattern = 'YYYY-MM-DD HH:mm:ss') =>{
+  return moment(dataStr).format(pattern)
+})
 /**
  * If you don't want to use mock-server
  * you want to use MockJs for mock api
